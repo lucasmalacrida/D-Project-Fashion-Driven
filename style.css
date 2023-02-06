@@ -43,6 +43,10 @@ input::placeholder {
     box-sizing: border-box;
 }
 
+.hidden {
+    display: none !important;
+}
+
 .option:hover, li:hover {
     cursor: pointer;
 }

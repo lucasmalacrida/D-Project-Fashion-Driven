@@ -51,4 +51,16 @@ function verifyOrder(){
 
 function confirmOrder(){
     alert("Enviando seu pedido...");
+
+    let order = {
+        "model": model,
+	    "neck": collar,
+	    "material": tissue,
+	    "image": inputTag.value,
+	    "owner": clientName,
+	    "author": clientName
+    };
+    axios.post("https://mock-api.driven.com.br/api/v4/shirts-api/shirts",order)
+    .then(x => alert("Pedido enviado!"))
+    .catch(x => alert("Ops, não conseguimos processar sua encomenda. Tente novamente."));
 }
