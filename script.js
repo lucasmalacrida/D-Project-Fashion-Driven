@@ -65,16 +65,17 @@ function confirmOrder(){
     .catch(x => alert("Ops, não conseguimos processar sua encomenda."));
 }
 
+let Data;
 function loadShirts(){
     axios.get("https://mock-api.driven.com.br/api/v4/shirts-api/shirts").then(loadSuccess).catch(loadError);
 
     function loadSuccess(Response){
-        let Data = Response.data;
+        Data = Response.data;
         const ulTag = document.querySelector('ul');
         ulTag.innerHTML = '';
         Data.forEach( x => ulTag.innerHTML += 
-            `<li>
-                <img src=${x.image} alt="Blusa ${x.id}">
+            `<li onclick="selectShirt(this)">
+                <img src=${x.image} alt="Blusa ${x.id}" id="${x.id}">
                 <h3><strong>Criador:</strong> ${x.owner}</h3>
             </li>` );
     }
@@ -84,3 +85,36 @@ function loadShirts(){
     }
 }
 loadShirts();
+
+let answer
+function selectShirt(liTag){
+    liTag.classList.add("selected");
+    let idShirt = liTag.firstElementChild.id;
+    let order = {};
+
+    Data.forEach(x => {
+        if (x.id == idShirt){
+            order = {
+                "model": x.model,
+                "neck": x.neck,
+                "material": x.material,
+                "image": x.image,
+                "owner": x.owner,
+                "author": clientName
+            };
+        }
+    });
+
+    setTimeout(confirmSelection,200);
+
+    function confirmSelection(){
+        answer = confirm("Deseja encomendar a camiseta selecionada?");
+        if (answer) {
+            alert("Enviando seu pedido...");
+            axios.post("https://mock-api.driven.com.br/api/v4/shirts-api/shirts",order)
+            .then(x => {alert("Pedido enviado!");loadShirts()})
+            .catch(x => alert("Ops, não conseguimos processar sua encomenda."));
+        }
+        liTag.classList.remove("selected");
+    }
+}
