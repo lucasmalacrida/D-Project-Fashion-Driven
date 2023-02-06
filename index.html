@@ -30,21 +30,21 @@
         <div class="content">
           <p>Escolha o modelo</p>
           <div class="models options">
-            <div class="model option">
+            <div class="model option" onclick="selectModel(this);verifyOrder()">
               <div class="circle">
                 <img src="./media/icons/tshirt.png" alt="T-shirt">
               </div>
               <p>T-shirt</p>
             </div>
 
-            <div class="model option">
+            <div class="model option" onclick="selectModel(this);verifyOrder()">
               <div class="circle">
                 <img src="./media/icons/Camiseta.png" alt="Camiseta">
               </div>
               <p>Camiseta</p>
             </div>
 
-            <div class="model option">
+            <div class="model option" onclick="selectModel(this);verifyOrder()">
               <div class="circle">
                 <img src="./media/icons/Mangalonga.png" alt="Manga longa">
               </div>
@@ -54,21 +54,21 @@
 
           <p>Escolha a gola</p>
           <div class="collars options">
-            <div class="collar option">
+            <div class="collar option" onclick="selectCollar(this);verifyOrder()">
               <div class="circle">
                 <img src="./media/icons/GolaV.png" alt="Gola V">
               </div>
               <p>Gola V</p>
             </div>
 
-            <div class="collar option">
+            <div class="collar option" onclick="selectCollar(this);verifyOrder()">
               <div class="circle">
                 <img src="./media/icons/GolaRedonda.png" alt="Gola Redonda">
               </div>
               <p>Gola Redonda</p>
             </div>
 
-            <div class="collar option">
+            <div class="collar option" onclick="selectCollar(this);verifyOrder()">
               <div class="circle">
                 <img src="./media/icons/GolaPolo.png" alt="Gola polo">
               </div>
@@ -78,21 +78,21 @@
 
           <p>Escolha o tecido</p>
           <div class="tissues options">
-            <div class="tissue option">
+            <div class="tissue option" onclick="selectTissue(this);verifyOrder()">
               <div class="circle">
                 <img src="./media/icons/Seda.png" alt="Seda">
               </div>
               <p>Seda</p>
             </div>
 
-            <div class="tissue option">
+            <div class="tissue option" onclick="selectTissue(this);verifyOrder()">
               <div class="circle">
                 <img src="./media/icons/Algodão.png" alt="Algodão">
               </div>
               <p>Algodão</p>
             </div>
 
-            <div class="tissue option">
+            <div class="tissue option" onclick="selectTissue(this);verifyOrder()">
               <div class="circle">
                 <img src="./media/icons/Poliester.png" alt="Poliéster">
               </div>
@@ -103,7 +103,7 @@
           <p>Imagem de referência</p>
           <input type="text" placeholder="Insira o link">
 
-          <button disabled><h3>Confirmar pedido</h3></button>
+          <button disabled onclick="confirmOrder()"><h3>Confirmar pedido</h3></button>
         </div>
       </div>
 

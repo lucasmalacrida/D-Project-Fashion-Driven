@@ -43,6 +43,10 @@ input::placeholder {
     box-sizing: border-box;
 }
 
+.option:hover, li:hover {
+    cursor: pointer;
+}
+
 header {
     background-color: #404EED;
     height: 89px;
@@ -127,6 +131,10 @@ button {
     height: 40px;
     border-radius: 10px;
     text-align: center;
+}
+
+.order-done {
+    background-color: #404EED;
 }
 
 aside {
