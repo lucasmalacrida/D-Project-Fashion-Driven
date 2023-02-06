@@ -152,7 +152,7 @@ aside img {
 
 footer {
     background-color: #F2F2F2;
-    min-height: 342px;
+    min-height: 380px;
 }
 
 footer h2 {
@@ -165,22 +165,31 @@ ul {
     margin-left: calc((100vw - 1366px)/2 + 119px);
     width: 1247px;
     overflow-x: scroll;
+    padding-bottom: 8px;
 }
 
 li {
     background-color: #FFFFFF;
     min-width: 201.5px;
-    height: 236.5px;
+    min-height: 236.5px;
     border-radius: 10px;
     margin-right: 16.5px;
     text-align: center;
 }
 
-li img {
-    display: block;
-    margin: 16px auto 8px;
-}
-
 li:last-of-type {
     margin-right: 0px;
 }
+
+li img {
+    display: block;
+    margin: 16px auto 8px;
+    width: 181px;
+    height: 180px;
+}
+
+li h3 {
+    display: inline-block;
+    padding-bottom: 9px;
+}
+

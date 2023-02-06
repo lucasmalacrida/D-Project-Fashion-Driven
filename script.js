@@ -61,6 +61,26 @@ function confirmOrder(){
 	    "author": clientName
     };
     axios.post("https://mock-api.driven.com.br/api/v4/shirts-api/shirts",order)
-    .then(x => alert("Pedido enviado!"))
-    .catch(x => alert("Ops, não conseguimos processar sua encomenda. Tente novamente."));
+    .then(x => {alert("Pedido enviado!");loadShirts()})
+    .catch(x => alert("Ops, não conseguimos processar sua encomenda."));
 }
+
+function loadShirts(){
+    axios.get("https://mock-api.driven.com.br/api/v4/shirts-api/shirts").then(loadSuccess).catch(loadError);
+
+    function loadSuccess(Response){
+        let Data = Response.data;
+        const ulTag = document.querySelector('ul');
+        ulTag.innerHTML = '';
+        Data.forEach( x => ulTag.innerHTML += 
+            `<li>
+                <img src=${x.image} alt="Blusa ${x.id}">
+                <h3><strong>Criador:</strong> ${x.owner}</h3>
+            </li>` );
+    }
+
+    function loadError(Response){
+        alert("Erro ao conectar com o servidor! Tente novamente mais tarde.");
+    }
+}
+loadShirts();
